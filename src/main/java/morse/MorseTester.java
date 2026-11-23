@@ -111,11 +111,22 @@ public class MorseTester {
     }
 
     @Test
-    public void testReverseOrder() {
+    public void testReverseOrderMorseInEnglish() {
         MorseConverter converter = new MorseConverter();
         String text = ".-";
 
         String actual = converter.convertEnglish(text);
+        String expected = "Invalid input";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReverseOrderEnglishInMorse() {
+        MorseConverter converter = new MorseConverter();
+        String text = "Hi";
+
+        String actual = converter.convertMorse(text);
         String expected = "Invalid input";
 
         assertEquals(expected, actual);
