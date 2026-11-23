@@ -132,6 +132,18 @@ public class MorseTester {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testExtraWhiteSpaceMorse() {
+        MorseConverter converter = new MorseConverter();
+        String text = ".- ";
+
+        String actual = converter.convertMorse(text);
+        String expected = "A";
+
+        assertEquals(expected, actual);
+    }
+
+
     //Ogiltliga tecken
 
     //Gemener istället för versaler
