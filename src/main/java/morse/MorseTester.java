@@ -12,7 +12,7 @@ public class MorseTester {
         MorseConverter converter = new MorseConverter();
         String text = "E";
 
-        String actual = converter.convert(text);
+        String actual = converter.convertEnglish(text);
         String expected = ".";
 
         assertEquals(expected, actual);
@@ -23,7 +23,7 @@ public class MorseTester {
         MorseConverter converter = new MorseConverter();
         String text = "H";
 
-        String actual = converter.convert(text);
+        String actual = converter.convertEnglish(text);
         String expected = "....";
 
         assertEquals(expected, actual);
@@ -35,7 +35,7 @@ public class MorseTester {
         MorseConverter converter = new MorseConverter();
         String text = "EH";
 
-        String actual = converter.convert(text);
+        String actual = converter.convertEnglish(text);
         String expected = ". ....";
 
         assertEquals(expected, actual);
@@ -82,7 +82,7 @@ public class MorseTester {
         MorseConverter converter = new MorseConverter();
         String text = "E!";
 
-        String actual = converter.convert(text);
+        String actual = converter.convertEnglish(text);
         String expected = "Invalid input";
 
         assertEquals(expected, actual);
@@ -93,7 +93,7 @@ public class MorseTester {
         MorseConverter converter = new MorseConverter();
         String text = "";
 
-        String actual = converter.convert(text);
+        String actual = converter.convertEnglish(text);
         String expected = "No input";
 
         assertEquals(expected, actual);
@@ -104,8 +104,19 @@ public class MorseTester {
         MorseConverter converter = new MorseConverter();
         String text = "       ";
 
-        String actual = converter.convert(text);
+        String actual = converter.convertEnglish(text);
         String expected = "No input";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReverseOrder() {
+        MorseConverter converter = new MorseConverter();
+        String text = ".-";
+
+        String actual = converter.convertEnglish(text);
+        String expected = "Invalid input";
 
         assertEquals(expected, actual);
     }

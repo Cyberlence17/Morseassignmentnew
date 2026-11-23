@@ -5,19 +5,21 @@ import java.util.Objects;
 
 public class MorseConverter {
 
-    private HashMap<String, String> map;
+    private HashMap<String, String> mapEnglish;
+    private HashMap<String, String> mapMorse;
 
     public MorseConverter() {
         String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String[] morseCodes = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
-        map = new HashMap<>();
+        mapEnglish = new HashMap<>();
+        mapMorse = new HashMap<>();
 
         for(int i=0; i<letters.length(); i++) {
             String letter = Character.toString(letters.charAt(i));
             String morseCode = morseCodes[i];
 
-            map.put(letter, morseCode);
-            map.put(morseCode, letter);
+            mapEnglish.put(letter, morseCode);
+            mapMorse.put(morseCode, letter);
         }
     }
 
@@ -32,7 +34,7 @@ public class MorseConverter {
     }*/
 
 
-    public String convert(String text) {
+    public String convertEnglish(String text) {
         String myText = "";
 
         text = text.trim();
@@ -43,7 +45,7 @@ public class MorseConverter {
 
         for (int i = 0; i < text.length(); i++) {
             String letter = Character.toString(text.charAt(i));
-            String morse = map.get(letter);
+            String morse = mapEnglish.get(letter);
 
             if (morse == null) {
                 return "Invalid input";
@@ -61,7 +63,7 @@ public class MorseConverter {
 
         String[] texts = text.split(" ");
         for (int i = 0; i < texts.length; i++) {
-            myText += map.get(texts[i]);
+            myText += mapMorse.get(texts[i]);
         }
 
         return myText;
