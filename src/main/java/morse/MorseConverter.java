@@ -61,9 +61,22 @@ public class MorseConverter {
 
         String myText = "";
 
+        text = text.trim();
+        if (text.isEmpty()) {
+            myText = "No input";
+        }
+
         String[] texts = text.split(" ");
         for (int i = 0; i < texts.length; i++) {
-            myText += mapMorse.get(texts[i]);
+            String morse = texts[i];
+            String letter = mapMorse.get(morse);
+
+            if (letter == null) {
+                return "Invalid input";
+            } else {
+                myText += letter;
+                //myText += mapMorse.get(texts[i]);
+            }
         }
 
         return myText;
